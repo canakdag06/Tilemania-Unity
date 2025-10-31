@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
 
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float jumpSpeed;
 
     void Start()
     {
@@ -24,6 +25,14 @@ public class PlayerMovement : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    void OnJump(InputValue value)
+    {
+        if(value.isPressed)
+        {
+            rb.linearVelocity += new Vector2(0f, jumpSpeed);
+        }
     }
 
     void Run()
