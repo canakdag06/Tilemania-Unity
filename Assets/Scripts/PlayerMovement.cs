@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
+    CapsuleCollider2D playerCollider;
     Animator animator;
     Vector2 moveInput;
 
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
     }
 
@@ -29,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if(value.isPressed)
+        if(value.isPressed && playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             rb.linearVelocity += new Vector2(0f, jumpSpeed);
         }
