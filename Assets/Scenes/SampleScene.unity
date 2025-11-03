@@ -80241,10 +80241,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vincent (Player)
       objectReference: {fileID: 0}
-    - target: {fileID: 2068742437009193820, guid: fea98b4e9291c26429ba891d3c5454d2, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 4439052244604727232, guid: fea98b4e9291c26429ba891d3c5454d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -80284,10 +80280,6 @@ PrefabInstance:
     - target: {fileID: 4439052244604727232, guid: fea98b4e9291c26429ba891d3c5454d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8213324608160400170, guid: fea98b4e9291c26429ba891d3c5454d2, type: 3}
-      propertyPath: climbingSpeed
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

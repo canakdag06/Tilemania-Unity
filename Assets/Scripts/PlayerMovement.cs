@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    CapsuleCollider2D playerCollider;
+    CapsuleCollider2D bodyCollider;
+    BoxCollider2D feetCollider;
     Animator animator;
     Vector2 moveInput;
 
@@ -17,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<CapsuleCollider2D>();
+        bodyCollider = GetComponent<CapsuleCollider2D>();
+        feetCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         gravityScaleAtStart = rb.gravityScale;
     }
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (value.isPressed && playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (value.isPressed && feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             rb.linearVelocity += new Vector2(0f, jumpSpeed);
         }
@@ -62,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
-        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ladders")))
+        if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Ladders")))
         {
             rb.gravityScale = gravityScaleAtStart;
             animator.SetBool("isClimbing", false);
