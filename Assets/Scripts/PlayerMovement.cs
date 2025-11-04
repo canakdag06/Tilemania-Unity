@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     CapsuleCollider2D bodyCollider;
     BoxCollider2D feetCollider;
-    Animator animator;
+    [SerializeField] Animator animator;
     Vector2 moveInput;
 
     [SerializeField] private float moveSpeed;
@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<CapsuleCollider2D>();
         feetCollider = GetComponent<BoxCollider2D>();
-        animator = GetComponent<Animator>();
         gravityScaleAtStart = rb.gravityScale;
     }
 
@@ -90,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
             isAlive = false;
+            animator.SetTrigger("Dying");
         }
     }
 }
