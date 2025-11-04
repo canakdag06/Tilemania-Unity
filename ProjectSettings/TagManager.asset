@@ -20,7 +20,7 @@ TagManager:
   - Enemy
   - Trap
   - Bullet
-  - 
+  - Interactables
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 1441937847
+    locked: 0
+  - name: Interactables
+    uniqueID: 3193263827
     locked: 0
   - name: Player
     uniqueID: 2483971637
