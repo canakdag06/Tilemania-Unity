@@ -12,8 +12,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float climbingSpeed;
-
     private float gravityScaleAtStart;
+
+    private bool isAlive = true;
 
     void Start()
     {
@@ -26,18 +27,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!isAlive) { return; }
+
         Run();
         FlipSprite();
         ClimbLadder();
+        Die();
     }
 
     void OnMove(InputValue value)
     {
+        if (!isAlive) { return; }
         moveInput = value.Get<Vector2>();
     }
 
     void OnJump(InputValue value)
     {
+        if (!isAlive) { return; }
         if (value.isPressed && feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             rb.linearVelocity += new Vector2(0f, jumpSpeed);
@@ -77,5 +83,13 @@ public class PlayerMovement : MonoBehaviour
 
         bool hasVerticalSpeed = Mathf.Abs(rb.linearVelocity.y) > Mathf.Epsilon;
         animator.SetBool("isClimbing", hasVerticalSpeed);
+    }
+
+    void Die()
+    {
+        if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            isAlive = false;
+        }
     }
 }
