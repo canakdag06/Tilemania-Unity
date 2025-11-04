@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator animator;
     Vector2 moveInput;
 
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
+
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float climbingSpeed;
@@ -82,6 +85,12 @@ public class PlayerMovement : MonoBehaviour
 
         bool hasVerticalSpeed = Mathf.Abs(rb.linearVelocity.y) > Mathf.Epsilon;
         animator.SetBool("isClimbing", hasVerticalSpeed);
+    }
+
+    void OnAttack(InputValue value)
+    {
+        if (!isAlive) { return; }
+        Instantiate(bullet, gun.position, transform.rotation);
     }
 
     void Die()

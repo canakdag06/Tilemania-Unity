@@ -80459,11 +80459,6 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!95 &2109801053 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6589498981158256892, guid: fea98b4e9291c26429ba891d3c5454d2, type: 3}
-  m_PrefabInstance: {fileID: 1180114069222818430}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1180114069222818430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80516,13 +80511,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8213324608160400170, guid: fea98b4e9291c26429ba891d3c5454d2, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 2109801053}
-    m_RemovedComponents:
-    - {fileID: 7072564588302771334, guid: fea98b4e9291c26429ba891d3c5454d2, type: 3}
-    - {fileID: 597456712260278224, guid: fea98b4e9291c26429ba891d3c5454d2, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
