@@ -1,10 +1,24 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
+    [SerializeField] float loadDelay = 1f;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentIndex + 1);
+        StartCoroutine(LoadNextLevel());
+    }
+
+    IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSecondsRealtime(loadDelay);
+        int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+        if(nextLevel == SceneManager.sceneCountInBuildSettings)
+        {
+            nextLevel = 0;
+        }
+
+        SceneManager.LoadScene(nextLevel);
     }
 }
