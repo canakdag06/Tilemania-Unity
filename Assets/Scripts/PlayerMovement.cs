@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -99,6 +100,13 @@ public class PlayerMovement : MonoBehaviour
         {
             isAlive = false;
             animator.SetTrigger("Dying");
+            StartCoroutine(HandleDeathAfterDelay());
         }
+    }
+
+    IEnumerator HandleDeathAfterDelay()
+    {
+        yield return new WaitForSeconds(2.5f);
+        GameSession.Instance.ProcessPlayerDeath();
     }
 }
