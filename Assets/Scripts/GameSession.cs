@@ -1,9 +1,13 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
     public static GameSession Instance;
+
+    [SerializeField] TextMeshProUGUI livesText;
+    [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] int lives = 3;
 
     private void Awake()
@@ -21,7 +25,7 @@ public class GameSession : MonoBehaviour
 
     void Start()
     {
-        
+        livesText.text = lives.ToString();
     }
 
     void Update()
@@ -35,6 +39,7 @@ public class GameSession : MonoBehaviour
         {
             lives--;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            livesText.text = lives.ToString();
         }
         else
         {
