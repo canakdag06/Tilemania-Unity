@@ -9,6 +9,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] int lives = 3;
+    [SerializeField] int score = 0;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class GameSession : MonoBehaviour
     void Start()
     {
         livesText.text = lives.ToString();
+        scoreText.text = score.ToString();
     }
 
     void Update()
@@ -45,6 +47,12 @@ public class GameSession : MonoBehaviour
         {
             ResetGameSession();
         }
+    }
+
+    public void AddScore(int points)
+    {
+        score += points;
+        scoreText.text = score.ToString();
     }
 
     private void ResetGameSession()
