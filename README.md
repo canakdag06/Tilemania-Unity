@@ -53,4 +53,4 @@ You can watch the gameplay video [here](https://www.youtube.com/watch?v=vLXrrt_j
 
 ## 📚 Credits
 - "Arcade Alternate" font by [Abdul Muizz bin Haji Kasim](https://www.dafont.com/arcade-alternate.font)
-- Other assets provided by GameDev.tv
+- Other assets were provided by GameDev.tv
